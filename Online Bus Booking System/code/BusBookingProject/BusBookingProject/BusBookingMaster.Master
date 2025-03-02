@@ -64,6 +64,8 @@
                         <li><a href="Default.aspx">Home</a></li>
                         <li><a href="AboutUs.aspx">About Us</a></li>
                         <li><a href="Home.aspx">Search Buses</a></li>
+                         <li><a href="ContactUs.aspx">ContactUs  </a></li>
+
                         <% if (Session["UserID"] != null) { %>
                             <li><a href="BookingReport.aspx">Booking Report</a></li>
                         <% } %>
