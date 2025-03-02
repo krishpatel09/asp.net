@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" style="margin-top:8%">
-        <asp:HyperLink ID="hlinkSearch" runat="server" NavigateUrl="~/Home.aspx" style="width:10%;align-content:center" class="btn btn-info btn-block">Search Again</asp:HyperLink>
+        <asp:HyperLink ID="hlinkSearch" runat="server" NavigateUrl="~/code/BusBookingProject/BusBookingProject/Home.aspx"  style="width:10%;align-content:center" class="btn btn-info btn-block">Search Again</asp:HyperLink>
         <asp:GridView ID="gvBusDetails" EmptyDataText="No Record Found...." runat="server" AutoGenerateColumns="False" CssClass="table table-hover table-bordered" OnRowDataBound="gvBusDetails_RowDataBound">
                     <Columns>
                        <asp:TemplateField HeaderText="Bus Name">
