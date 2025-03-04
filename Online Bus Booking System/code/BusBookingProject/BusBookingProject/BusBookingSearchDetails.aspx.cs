@@ -15,11 +15,12 @@ namespace BusBookingProject
         #region Global Variable
         SqlConnection connString = new SqlConnection(ConfigurationManager.ConnectionStrings["OnlineBusBookingConnectionString"].ToString());
         #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                    bindSearchDetails();
+                bindSearchDetails();
             }
         }
 
@@ -32,14 +33,15 @@ namespace BusBookingProject
                 connString.Open();
             }
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.Parameters.AddWithValue("@Origin",Convert.ToString(Request.QueryString["Origin"]));
+            sqlCmd.Parameters.AddWithValue("@Origin", Convert.ToString(Request.QueryString["Origin"]));
             sqlCmd.Parameters.AddWithValue("@Destination", Convert.ToString(Request.QueryString["Destination"]));
-            sqlCmd.Parameters.AddWithValue("@TravelDate",Convert.ToString(Request.QueryString["TravelDate"]));
+            sqlCmd.Parameters.AddWithValue("@TravelDate", Convert.ToString(Request.QueryString["TravelDate"]));
             sqlCmd.CommandText = "ispGetAvailableBusDetails";
             sqlCmd.Connection = connString;
             SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
             sda.Fill(dsGetData);
-            if(dsGetData.Tables[0].Rows.Count>0)
+
+            if (dsGetData.Tables[0].Rows.Count > 0)
             {
                 hlinkSearch.Visible = false;
                 gvBusDetails.DataSource = dsGetData.Tables[0];
@@ -47,24 +49,30 @@ namespace BusBookingProject
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Trip not available,Please search again with different date')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Trip not available, Please search again with a different date')", true);
                 hlinkSearch.Visible = true;
             }
         }
 
         protected void gvBusDetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if(e.Row.RowType==DataControlRowType.DataRow)
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 HiddenField hdnNewBusID = (HiddenField)e.Row.FindControl("hdnBusID");
                 HiddenField hdnNewSeatRow = (HiddenField)e.Row.FindControl("hdnSeatRow");
                 HiddenField hdnNewSeatCol = (HiddenField)e.Row.FindControl("hdnSeatColumn");
                 HyperLink hlnkSelect = (HyperLink)e.Row.FindControl("hplnkSelect");
                 Label lblFare = (Label)e.Row.FindControl("lblFare");
-                hlnkSelect.NavigateUrl="SeatDetails.aspx?BusID=" + hdnNewBusID.Value + "&Row=" + hdnNewSeatRow.Value + "&Column=" + hdnNewSeatCol.Value+
-                    "&Origin=" + Request.QueryString["Origin"] + "&Destination=" + Request.QueryString["Destination"]+
-                    "&TravelDate=" + Request.QueryString["TravelDate"]+"&Fare="+lblFare.Text;
+
+                hlnkSelect.NavigateUrl = "SeatDetails.aspx?BusID=" + hdnNewBusID.Value + "&Row=" + hdnNewSeatRow.Value + "&Column=" + hdnNewSeatCol.Value +
+                    "&Origin=" + Request.QueryString["Origin"] + "&Destination=" + Request.QueryString["Destination"] +
+                    "&TravelDate=" + Request.QueryString["TravelDate"] + "&Fare=" + lblFare.Text;
             }
+        }
+
+        protected void btnSearchAgain_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
         }
     }
 }

@@ -23,10 +23,10 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <!-- <script>
         $(function () {
             $("#<%= txtDate.ClientID %>").datepicker({ dateFormat: 'dd/mm/yy' });
-        });
+        });  -->
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -56,8 +56,8 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <asp:Label ID="lblDate" runat="server" Text="Travel Date" Font-Bold="true"></asp:Label>
-                                <asp:TextBox ID="txtDate" runat="server" placeholder="DD/MM/YYYY Format" class="form-control input-sm floatlabel"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvDate" runat="server" ControlToValidate="txtDate" ErrorMessage="Please enter a travel date." CssClass="text-danger" Display="Dynamic" />
+                                <asp:TextBox ID="txtDate" runat="server"  TextMode="Date" placeholder="DD/MM/YYYY Format" class="form-control input-sm floatlabel"></asp:TextBox>
+                               <!--  <asp:RequiredFieldValidator ID="rfvDate"  runat="server" ControlToValidate="txtDate" ErrorMessage="Please enter a travel date." CssClass="text-danger" Display="Dynamic" /> -->
                                 <asp:RegularExpressionValidator ID="revDate" runat="server" ControlToValidate="txtDate" ValidationExpression="^\d{2}/\d{2}/\d{4}$" ErrorMessage="Invalid date format. Use DD/MM/YYYY." CssClass="text-danger" Display="Dynamic" />
                             </div>
                         </div>

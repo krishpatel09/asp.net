@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="code_BusBookingProject_BusBookingProject_ContactUs" %>
+﻿<%@ Page Language="C#"  MasterPageFile="BusBookingMaster.Master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="code_BusBookingProject_BusBookingProject_ContactUs" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -60,9 +60,9 @@ https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3l
 
                 <!-- Contact Details -->
                 <div class="mt-4 text-center">
-                    <p><strong>📍 Address:</strong> 123 Bus Street, Surat, Gujarat</p>
+                    <p><strong>📍 Address:</strong> 123 Movdi Street, Rajkot, Gujarat</p>
                     <p><strong>📞 Phone:</strong> +91 98765 43210</p>
-                    <p><strong>📧 Email:</strong> contact@busbooking.com</p>
+                    <p><strong>📧 Email:</strong> contact@CabBooking.com</p>
                 </div>
             </div>
         </div>

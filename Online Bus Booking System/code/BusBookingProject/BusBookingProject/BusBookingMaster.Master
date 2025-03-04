@@ -57,15 +57,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="Default.aspx" class="navbar-brand">Online Bus Booking</a>
+                    <a href="Default.aspx" class="navbar-brand">Online Cab Booking</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav">
                         <li><a href="Default.aspx">Home</a></li>
                         <li><a href="AboutUs.aspx">About Us</a></li>
-                        <li><a href="Home.aspx">Search Buses</a></li>
-                         <li><a href="ContactUs.aspx">ContactUs  </a></li>
-
+                        <li><a href="Home.aspx">Book Now</a></li>
+                        <li><a href="ContactUs.aspx">ContactUs  </a></li>
                         <% if (Session["UserID"] != null) { %>
                             <li><a href="BookingReport.aspx">Booking Report</a></li>
                         <% } %>
@@ -94,11 +93,11 @@
     <!-- Footer Section -->
     <footer class="footer-custom">
         <div class="container">
-            <div class="row">
+          <!--  <div class="row">
                 <div class="col-md-4">
-                    <h4>About Bus Booking</h4>
+                    <h4>About Cab Booking</h4>
                     <p>
-                        Online Bus Booking System provides a fast, safe, and reliable way to book buses online. We offer affordable pricing and excellent service to ensure a smooth journey.
+                        Online Cab Booking System provides a fast, safe, and reliable way to book buses online. We offer affordable pricing and excellent service to ensure a smooth journey.
                     </p>
                 </div>
                 <div class="col-md-4">
@@ -119,7 +118,7 @@
                         <a href="#"><i class="fa fa-instagram"></i></a>
                     </p>
                 </div>
-            </div>
+            </div> -->
             <hr>
             <p class="text-center">&copy; <%: DateTime.Now.Year %> Online Bus Booking. All Rights Reserved.</p>
         </div>
